@@ -94,7 +94,7 @@ public class RadioBarActivity extends Activity implements RadioGroup.OnCheckedCh
         underlineIndicator.startAnimation(_AnimationSet);
 
         fromIndicatorXDelta = toIndicatorXDelta;
-        horizontalScrollView.smoothScrollTo(toIndicatorXDelta - curRadio.getMeasuredWidth(), 0);
+        horizontalScrollView.smoothScrollTo(toIndicatorXDelta-100, 0);
     }
 
     private void initView() {
