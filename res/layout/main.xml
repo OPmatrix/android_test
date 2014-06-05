@@ -1,19 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="fill_parent"
-    android:layout_height="fill_parent"
-    >
-<TextView
-    android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:text="Hello World, MyActivity"
-    />
+              android:orientation="vertical"
+              android:layout_width="fill_parent"
+              android:layout_height="fill_parent"
+        >
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Hello World, MyActivity"
+            />
     <Button
             android:id="@+id/targetApi"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
             android:text="targetApi"
+            />
+    <Button
+            android:id="@+id/radioBar"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="radioBar"
             />
 </LinearLayout>
 
