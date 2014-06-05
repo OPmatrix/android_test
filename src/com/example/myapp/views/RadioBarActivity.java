@@ -13,7 +13,10 @@ import android.widget.*;
 import com.example.myapp.R;
 
 /**
- * Created by ouyangzhouchao on 14-6-4.
+ * indicator for tabhost which uses radioGroup
+ * @author ouyangzhouchao
+ * @version 0.1.0
+ * @since Tue 5 june 2014
  */
 public class RadioBarActivity extends Activity implements RadioGroup.OnCheckedChangeListener {
 
