@@ -5,8 +5,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import com.example.myapp.views.RadioBarActivity;
-import com.example.myapp.views.TargetApiActivity;
+import com.example.myapp.activity.IntrumentInfoAcitivity;
+import com.example.myapp.activity.RadioBarActivity;
+import com.example.myapp.activity.SlidingPagerAcitivty;
+import com.example.myapp.activity.TargetApiActivity;
 
 public class MyActivity extends Activity
 {
@@ -31,6 +33,24 @@ public class MyActivity extends Activity
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MyActivity.this, RadioBarActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button instrumentInfo  = (Button)findViewById(R.id.instrumentInfo);
+        instrumentInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyActivity.this, IntrumentInfoAcitivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button slidingPager  = (Button)findViewById(R.id.slidingPager);
+        slidingPager.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyActivity.this, SlidingPagerAcitivty.class);
                 startActivity(intent);
             }
         });

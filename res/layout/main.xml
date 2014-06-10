@@ -21,5 +21,17 @@
             android:layout_width="match_parent"
             android:text="radioBar"
             />
+    <Button
+            android:id="@+id/instrumentInfo"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="intruementInfo"
+            />
+    <Button
+            android:id="@+id/slidingPager"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="slidingPager"
+            />
 </LinearLayout>
 

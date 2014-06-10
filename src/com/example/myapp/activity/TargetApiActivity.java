@@ -1,4 +1,4 @@
-package com.example.myapp.views;
+package com.example.myapp.activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;

@@ -12,7 +12,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".views.RadioBarActivity"/>
-        <activity android:name=".views.TargetApiActivity"/>
+        <activity android:name=".activity.RadioBarActivity"/>
+        <activity android:name=".activity.TargetApiActivity"/>
+        <activity android:name=".activity.IntrumentInfoAcitivity"/>
+        <activity android:name=".activity.SlidingPagerAcitivty"/>
+
+
     </application>
 </manifest>

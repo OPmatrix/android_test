@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="background_tab_pressed">#6633B5E5</color>
+
+    <color name="view_pager_indicator_dark_blue">#11a8e7</color>
+    <color name="view_pager_indicator_light_blue">#58c2ee</color>
+    <color name="view_pager_indicator_gray">#797a7d</color>
+</resources>
