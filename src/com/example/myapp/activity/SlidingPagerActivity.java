@@ -17,7 +17,7 @@ import com.example.myapp.views.PagerSlidingTabStrip;
 /**
  * Created by ouyangzhouchao on 14-6-9.
  */
-public class SlidingPagerAcitivty extends FragmentActivity {
+public class SlidingPagerActivity extends FragmentActivity {
 
     PagerSlidingTabStrip indicators;
     ViewPager pager;

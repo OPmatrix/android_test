@@ -15,8 +15,8 @@
         <activity android:name=".activity.RadioBarActivity"/>
         <activity android:name=".activity.TargetApiActivity"/>
         <activity android:name=".activity.IntrumentInfoAcitivity"/>
-        <activity android:name=".activity.SlidingPagerAcitivty"/>
-
+        <activity android:name=".activity.SlidingPagerActivity"/>
+        <activity android:name=".activity.TabHostFragmentActivity"/>
 
     </application>
 </manifest>

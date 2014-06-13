@@ -5,10 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import com.example.myapp.activity.IntrumentInfoAcitivity;
-import com.example.myapp.activity.RadioBarActivity;
-import com.example.myapp.activity.SlidingPagerAcitivty;
-import com.example.myapp.activity.TargetApiActivity;
+import com.example.myapp.activity.*;
 
 public class MyActivity extends Activity
 {
@@ -50,7 +47,16 @@ public class MyActivity extends Activity
         slidingPager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyActivity.this, SlidingPagerAcitivty.class);
+                Intent intent = new Intent(MyActivity.this, SlidingPagerActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        Button tabHost  = (Button)findViewById(R.id.tabHost);
+        tabHost.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyActivity.this, TabHostFragmentActivity.class);
                 startActivity(intent);
             }
         });
