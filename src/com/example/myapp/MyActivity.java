@@ -61,5 +61,14 @@ public class MyActivity extends Activity
             }
         });
 
+        Button androidAsync  = (Button)findViewById(R.id.androidAsync);
+        androidAsync.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyActivity.this, AndroidAsyncActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

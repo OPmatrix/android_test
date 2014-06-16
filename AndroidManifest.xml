@@ -17,6 +17,7 @@
         <activity android:name=".activity.IntrumentInfoAcitivity"/>
         <activity android:name=".activity.SlidingPagerActivity"/>
         <activity android:name=".activity.TabHostFragmentActivity"/>
+        <activity android:name=".activity.AndroidAsyncActivity"/>
 
     </application>
 </manifest>

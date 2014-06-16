@@ -39,5 +39,11 @@
             android:layout_width="match_parent"
             android:text="tabHost"
             />
+    <Button
+            android:id="@+id/androidAsync"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="androidAsync"
+            />
 </LinearLayout>
 
