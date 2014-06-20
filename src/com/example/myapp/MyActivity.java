@@ -65,10 +65,21 @@ public class MyActivity extends Activity
         androidAsync.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyActivity.this, AndroidAsyncActivity.class);
+                Intent intent = new Intent(MyActivity.this, ChatLoginActivity_.class);
                 startActivity(intent);
             }
         });
+
+        Button sockeIO  = (Button)findViewById(R.id.sockeIO);
+        sockeIO.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyActivity.this, SocketIoActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
 
     }
 }
