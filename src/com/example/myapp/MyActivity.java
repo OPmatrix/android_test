@@ -7,16 +7,14 @@ import android.view.View;
 import android.widget.Button;
 import com.example.myapp.activity.*;
 
-public class MyActivity extends Activity
-{
-    /** Called when the activity is first created. */
+public class MyActivity extends Activity {
+
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
 
-        Button targetApi = (Button)findViewById(R.id.targetApi);
+        Button targetApi = (Button) findViewById(R.id.targetApi);
         targetApi.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -25,7 +23,7 @@ public class MyActivity extends Activity
             }
         });
 
-        Button radioBar = (Button)findViewById(R.id.radioBar);
+        Button radioBar = (Button) findViewById(R.id.radioBar);
         radioBar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -34,7 +32,7 @@ public class MyActivity extends Activity
             }
         });
 
-        Button instrumentInfo  = (Button)findViewById(R.id.instrumentInfo);
+        Button instrumentInfo = (Button) findViewById(R.id.instrumentInfo);
         instrumentInfo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -43,7 +41,7 @@ public class MyActivity extends Activity
             }
         });
 
-        Button slidingPager  = (Button)findViewById(R.id.slidingPager);
+        Button slidingPager = (Button) findViewById(R.id.slidingPager);
         slidingPager.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -52,7 +50,7 @@ public class MyActivity extends Activity
             }
         });
 
-        Button tabHost  = (Button)findViewById(R.id.tabHost);
+        Button tabHost = (Button) findViewById(R.id.tabHost);
         tabHost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,7 +59,7 @@ public class MyActivity extends Activity
             }
         });
 
-        Button androidAsync  = (Button)findViewById(R.id.androidAsync);
+        Button androidAsync = (Button) findViewById(R.id.androidAsync);
         androidAsync.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,14 +68,26 @@ public class MyActivity extends Activity
             }
         });
 
-        Button sockeIO  = (Button)findViewById(R.id.sockeIO);
-        sockeIO.setOnClickListener(new View.OnClickListener() {
+        Button weather = (Button) findViewById(R.id.weather);
+        weather.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MyActivity.this, SocketIoActivity.class);
+                Intent intent = new Intent(MyActivity.this, WeatherActivity_.class);
                 startActivity(intent);
             }
         });
+
+
+        Button location = (Button) findViewById(R.id.location);
+        location.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(MyActivity.this, LocationActivity_.class);
+                startActivity(intent);
+            }
+        });
+
+
 
 
 

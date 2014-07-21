@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        android:layout_width="fill_parent"
+        android:background="@drawable/night_bg"
+        android:id="@+id/root"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="40dp"
+            android:visibility="invisible"
+            android:layout_marginTop="30dp"
+            android:layout_marginLeft="30dp"
+            android:text="35℃~26℃"
+            android:textColor="#ffffff"
+            android:id="@+id/temperature" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"/>
+
+    <TextView
+            android:id="@+id/introduce"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#ffffff"
+            android:textSize="30dp"
+            android:visibility="invisible"
+            android:layout_marginTop="15dp"
+            android:text="晴转多云"
+            android:layout_below="@+id/temperature"
+            android:layout_alignLeft="@+id/temperature"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="广州"
+            android:textColor="#ffffff"
+            android:visibility="invisible"
+            android:textSize="27dp"
+            android:background="@drawable/location_selector"
+            android:padding="3dp"
+            android:drawableRight="@drawable/location"
+            android:layout_marginTop="20dp"
+            android:drawablePadding="4dp"
+            android:id="@+id/location"
+            android:layout_below="@id/introduce"
+            android:layout_alignLeft="@id/introduce"/>
+
+    <ImageView
+            android:id="@+id/flag"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/sun_night_large"
+            android:visibility="invisible"
+            android:layout_marginRight="20dp"
+            android:layout_below="@id/introduce"
+            android:layout_alignParentRight="true"/>
+
+    <ImageView
+            android:id="@+id/back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:visibility="invisible"
+            android:src="@drawable/weather_back"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"/>
+
+    <ImageView
+            android:id="@+id/refresh"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:src="@drawable/weather_refresh_selector"
+            android:padding="10dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"/>
+
+    <TextView
+            android:id="@+id/updateTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="invisible"
+            android:text="3G天气：更新于2013/7/12 星期五"
+            android:textSize="15dp"
+            android:textColor="#ffffff"
+            android:gravity="center_vertical"
+            android:paddingBottom="15dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"/>
+
+    <View android:id="@+id/split"
+          android:layout_width="fill_parent"
+          android:layout_height="1dp"
+          android:background="#1Effffff"
+          android:layout_above="@+id/refresh"
+          android:layout_marginRight="10dp"
+          android:layout_marginLeft="10dp"
+          android:visibility="invisible"
+          android:layout_alignLeft="@+id/back"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="周三 35℃~26℃"
+            android:layout_marginBottom="10dp"
+            android:visibility="invisible"
+            android:textSize="11dp"
+            android:textColor="#ffffff"
+            android:id="@+id/tomorrow" android:layout_above="@id/split" android:layout_alignLeft="@id/split"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="晴转"
+            android:visibility="invisible"
+            android:gravity="center"
+            android:layout_marginLeft="11dp"
+            android:layout_marginBottom="3dp"
+            android:textSize="11dp"
+            android:textColor="#ffffff"
+            android:drawablePadding="5dp"
+            android:drawableTop="@drawable/sun_night_small"
+            android:id="@+id/tomorrowTemperature" android:layout_above="@+id/tomorrow"
+            android:layout_alignLeft="@+id/tomorrow"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="周四 35℃~26℃"
+            android:textSize="11dp"
+            android:visibility="invisible"
+            android:textColor="#ffffff"
+            android:id="@+id/afterTomorrow"
+            android:layout_alignBottom="@+id/tomorrow"
+            android:layout_centerHorizontal="true"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="11dp"
+            android:visibility="invisible"
+            android:textColor="#ffffff"
+            android:drawablePadding="5dp"
+            android:layout_marginLeft="11dp"
+            android:gravity="center"
+            android:text="小到中雨"
+            android:drawableTop="@drawable/sun_night_small"
+            android:id="@+id/afterTomorrowTemperature" android:layout_alignBottom="@+id/tomorrowTemperature"
+            android:layout_alignLeft="@+id/afterTomorrow"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="周五 35℃~26℃"
+            android:textSize="11dp"
+            android:visibility="invisible"
+            android:layout_marginRight="10dp"
+            android:textColor="#ffffff"
+            android:id="@+id/thirdDay"
+            android:layout_alignBottom="@+id/afterTomorrow" android:layout_alignRight="@+id/refresh"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawablePadding="5dp"
+            android:text="小到中雨"
+            android:gravity="center"
+            android:visibility="invisible"
+            android:singleLine="true"
+            android:layout_marginLeft="11dp"
+            android:textSize="11dp"
+            android:textColor="#ffffff"
+            android:drawableTop="@drawable/sun_night_small"
+            android:layout_alignTop="@+id/afterTomorrowTemperature"
+            android:id="@+id/thirdDayTemperature" android:layout_above="@+id/thirdDay"
+            android:layout_alignLeft="@+id/thirdDay"/>
+
+    <ProgressBar android:id="@+id/loadingProgressbar"
+                 android:layout_width="@dimen/round_progress_bar_size"
+                 android:layout_height="@dimen/round_progress_bar_size"
+                 android:indeterminateDrawable="@anim/round_progress_bar"
+                 android:visibility="gone"
+                 android:layout_centerInParent="true"/>
+
+</RelativeLayout>

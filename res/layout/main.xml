@@ -46,10 +46,17 @@
             android:text="androidAsync"
             />
     <Button
-            android:id="@+id/sockeIO"
+            android:id="@+id/weather"
             android:layout_height="wrap_content"
             android:layout_width="match_parent"
-            android:text="sockeIO"
+            android:text="weather"
             />
+    <Button
+            android:id="@+id/location"
+            android:layout_height="wrap_content"
+            android:layout_width="match_parent"
+            android:text="location"
+            />
+
 </LinearLayout>
 

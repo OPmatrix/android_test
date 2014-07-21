@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent" xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:padding="10dp"
+            android:text="广东"
+            android:gravity="center_vertical"
+            android:textSize="18sp"
+            android:textColor="#ffffff"
+            android:layout_marginTop="13dp"
+            android:layout_marginLeft="13dp"
+            android:layout_marginRight="13dp"
+            android:drawableRight="@drawable/hide"
+            android:onClick="toggle"
+            android:background="@drawable/city_background"
+            android:id="@+id/provider" android:layout_alignParentTop="true" android:layout_alignParentLeft="true"/>
+
+    <GridView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:numColumns="2"
+            android:stretchMode="columnWidth"
+            android:scrollbars="none"
+            android:visibility="gone"
+            android:id="@+id/cities"
+            android:layout_below="@+id/provider"
+            android:layout_alignRight="@+id/provider"
+            android:layout_alignLeft="@+id/provider"/>
+
+</RelativeLayout>

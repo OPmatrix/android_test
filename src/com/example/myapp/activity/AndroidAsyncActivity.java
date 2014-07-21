@@ -24,6 +24,8 @@ public class AndroidAsyncActivity extends Activity {
 
     @ViewById(R.id.content)
     TextView content;
+    @ViewById(R.id.numContent)
+    TextView numContent;
     @ViewById(R.id.sendMsg)
     Button sendMsg;
     @ViewById(R.id.input)
@@ -36,6 +38,7 @@ public class AndroidAsyncActivity extends Activity {
     String room;
 
     private SocketIOClient socketIOClient;
+    private int recv = 0;
 
 
     @AfterViews
@@ -52,8 +55,7 @@ public class AndroidAsyncActivity extends Activity {
         String to = userName.getText().toString();
         JSONArray args = new JSONArray();
         if (to.equals("")) {
-            args.put(text);
-            socketIOClient.emit("roomChat", args, null);
+            roomChat(text);
         } else {
             JSONObject jsonObject = new JSONObject();
             try {
@@ -83,32 +85,20 @@ public class AndroidAsyncActivity extends Activity {
                         Log.e("onString", string);
                     }
                 });
-                socketIOClient.on("roomChat", new EventCallback() {
+
+                socketIOClient.on("data", new EventCallback() {
                     @Override
                     public void onEvent(JSONArray arguments, Acknowledge acknowledge) {
                         try {
+                            recv++;
                             String content = (String) arguments.get(0);
                             showMsg(content);
                             Log.e("onEvent", "roomChat: " + arguments.toString());
                         } catch (Exception e) {
-
                         }
-
                     }
                 });
-                socketIOClient.on("privateChat", new EventCallback() {
-                    @Override
-                    public void onEvent(JSONArray arguments, Acknowledge acknowledge) {
-                        try {
-                            String content = (String) arguments.get(0);
-                            showMsg(content);
-                            Log.e("onEvent", "privateChat: " + arguments.toString());
-                        } catch (Exception e) {
 
-                        }
-
-                    }
-                });
                 socketIOClient.setJSONCallback(new JSONCallback() {
                     @Override
                     public void onJSON(JSONObject json, Acknowledge acknowledge) {
@@ -116,19 +106,79 @@ public class AndroidAsyncActivity extends Activity {
                         Log.e("onJSON", "json: " + json.toString());
                     }
                 });
+                socketIOClient.setDisconnectCallback(new DisconnectCallback() {
+                    @Override
+                    public void onDisconnect(Exception e) {
+                        Log.e("disconnect","",e);
+                    }
+                });
+                socketIOClient.setReconnectCallback(new ReconnectCallback() {
+                    @Override
+                    public void onReconnect() {
+                        Log.e("reConnect", "");
+                        login();
+                    }
+                });
                 login();
             }
         });
+    }
+
+    private void roomChat(String content){
+        try {
+            JSONArray args = new JSONArray();
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("route", "roomChat");
+            jsonObject.put("data", content);
+            args.put(jsonObject);
+            socketIOClient.emit("data", args, new Acknowledge(){
+                @Override
+                public void acknowledge(JSONArray arguments){
+                    Log.e("roomChat ack: ", arguments.toString());
+                }
+            });
+
+        } catch (JSONException ex) {
+            Log.e("app", "app", ex);
+        }
     }
 
     private void login() {
         try {
             JSONArray args = new JSONArray();
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("userId", name);
-            jsonObject.put("roomToken", room);
+            jsonObject.put("userName", name);
+            jsonObject.put("password", room);
             args.put(jsonObject);
-            socketIOClient.emit("login", args, null);
+            socketIOClient.emit("login", args, new Acknowledge(){
+                @Override
+                public void acknowledge(JSONArray arguments){
+                    Log.e("login ack: ", arguments.toString());
+                    joinRoom();
+                }
+
+            });
+
+        } catch (JSONException ex) {
+            Log.e("app", "app", ex);
+        }
+    }
+
+    private void joinRoom() {
+        try {
+            JSONArray args = new JSONArray();
+            JSONObject jsonObject = new JSONObject();
+            jsonObject.put("route", "joinRoom");
+            JSONObject roomInfo= new JSONObject();
+            roomInfo.put("roomToken", room);
+            jsonObject.put("data", roomInfo);
+            args.put(jsonObject);
+            socketIOClient.emit("data", args, new Acknowledge(){
+                @Override
+                public void acknowledge(JSONArray arguments){
+                    Log.e("joinRoom ack: ", arguments.toString());
+                }
+            });
         } catch (JSONException ex) {
             Log.e("app", "app", ex);
         }
@@ -145,7 +195,9 @@ public class AndroidAsyncActivity extends Activity {
     private Handler uiHandler = new Handler() {
         public void handleMessage(android.os.Message msg) {
             Bundle data = msg.getData();
-            content.setText(content.getText() + "\n" + data.getString("content"));
+            String str = content.getText() + "\n" + data.getString("content");
+            numContent.setText(Integer.toString(recv));
+            content.setText(str.substring(Math.max(str.length()-500,0), str.length()));
         }
 
     };
