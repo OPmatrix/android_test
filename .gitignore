@@ -16,10 +16,7 @@ gen/
 generated/
 
 # Config for intellij IDEA
-.idea/
 assets/
-*.iml
-*.jks
 
 # Gradle files
 .gradle/
