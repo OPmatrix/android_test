@@ -58,10 +58,16 @@
     </LinearLayout>
 
     <Button
-            android:id="@+id/refresh"
+            android:id="@+id/refreshNet"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="22dp"
-            android:text="refresh"/>
+            android:text="network_provider location"/>
+    <Button
+            android:id="@+id/refreshGPS"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22dp"
+            android:text="refresh GPS location"/>
 
 </LinearLayout>

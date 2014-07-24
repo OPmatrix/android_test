@@ -33,10 +33,10 @@ public class LocationActivity extends Activity {
     TextView altitudeView;
     @ViewById(R.id.tips)
     TextView tips;
-    @ViewById
-    Button refresh;
 
     LocationManager locationManager;
+
+    Handler myHandler = new Handler();
 
     @AfterViews
     void afterViews() {
@@ -45,15 +45,41 @@ public class LocationActivity extends Activity {
         if (location == null) {
             locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
                     1000, 0, locationListener);
+            myHandler.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    Toast.makeText(LocationActivity.this, "timeout", Toast.LENGTH_LONG);
+                }
+            }, 6 * 1000);
         } else {
             locationListener.onLocationChanged(location);
         }
     }
 
-    @Click
-    void refresh() {
+    @Click(R.id.refreshNet)
+    void refreshNet() {
         locationManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER,
                 1000, 0, locationListener);
+        myHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(LocationActivity.this, "refreshNet timeout", Toast.LENGTH_LONG).show();
+                locationManager.removeUpdates(locationListener);
+            }
+        }, 20 * 1000);
+    }
+
+    @Click(R.id.refreshGPS)
+    void refreshGPS() {
+        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,
+                1000, 0, locationListener);
+        myHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                Toast.makeText(LocationActivity.this, "refreshGPS timeout", Toast.LENGTH_LONG).show();
+                locationManager.removeUpdates(locationListener);
+            }
+        }, 20 * 1000);
     }
 
     @UiThread
